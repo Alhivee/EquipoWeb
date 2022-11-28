@@ -3,12 +3,16 @@
 include("conexion.php");
 $con=conectar();
 
-$cod_estudiante=$_GET['id'];
+$idpaquete=$_GET['id'];
 
-$sql="DELETE FROM alumno  WHERE ncontrol='$cod_estudiante'";
+$sql="DELETE FROM softteci_paqueteria.paquete WHERE idpaquete='$idpaquete'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: alumno.php");
+         echo "<script>
+                alert('Guia de paquete eliminada');
+                 window.location= 'inicio.php'
+    </script>";
+        
     }
 ?>
