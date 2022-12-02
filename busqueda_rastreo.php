@@ -9,7 +9,13 @@
 
     $conexion=mysqli_connect($host,$user,$pass,$bd);
 
-$ID_GUIA = $_POST['busqueda_rastreo'];
+$ID_GUIA = $_GET['busqueda'];
+
+        $consulta="SELECT * FROM softteci_paqueteria.PAQUETE where ID_GUIA = $ID_GUIA";
+    
+    $busqueda=mysqli_query($conexion,$consulta);
+   
+    while ($reg=mysqli_fetch_array($busqueda)){
 ?>
 
 <!DOCTYPE html>
@@ -24,17 +30,9 @@ $ID_GUIA = $_POST['busqueda_rastreo'];
 </head>
 	<body> 
 	<div class="ventas">
-	    <?php
-
-        $consulta="select * from PAQUETE where ID_GUIA = '$ID_GUIA'";
-    
-    $busqueda=mysqli_query($conexion,$consulta);
-    
-    while ($reg=mysqli_fetch_array($busqueda)){
-    
-    ?>
+	 
 <br>
-		    <center> <h1> MI PEDIDO # <?php echo $reg['ID_GUIA'] ?>  </h1></center><br>
+		    <center> <h1> MI PEDIDO # <?php echo $ID_GUIA ?>  </h1></center><br>
 		    <center><table><form >
                 <tr> 
 
@@ -53,22 +51,22 @@ $ID_GUIA = $_POST['busqueda_rastreo'];
 
 
    <tr>  
-    <td><center> <?php echo $reg['ID_Guia'] ?></td>
-    <td><center> <?php echo $reg['destinatario'] ?></td>
-    <td><center> <?php echo $reg['estado_destino'] ?></td>
-    <td><center> <?php echo $reg['direccion_destino'] ?></td>
-    <td><center> <?php echo $reg['telefono_destino'] ?></td>
-    <td><center> <?php echo $reg['tipo_envio'] ?></td>
-    <td><center> <?php echo $reg['total_envio'] ?></td>
-    <td><center> <?php echo $reg['fecha_salida'] ?></td>
-    <td><center> <?php echo $reg['estatus'] ?></td>
+       <td><center> <?php echo $reg['ID_Guia'] ?> </center></td>
+       <td><center> <?php echo $reg['destinatario'] ?> </center></td>
+       <td><center> <?php echo $reg['estado_destino'] ?></center></td>
+       <td><center> <?php echo $reg['direccion_destino'] ?></center></td>
+       <td><center> <?php echo $reg['telefono_destino'] ?></center></td>
+       <td><center> <?php echo $reg['tipo_envio'] ?></center></td>
+       <td><center> <?php echo $reg['total_envio'] ?></center></td>
+       <td><center> <?php echo $reg['fecha_salida'] ?></center></td>
+       <td><center> <?php echo $reg['estatus'] ?></center></td>
     </tr>
 
     <?php
 } mysqli_close($conexion);
     ?>
 
-</table></center></br>
-
+</table></center>
+                </tr></form></table></center>
 </div></body>
 </html>
