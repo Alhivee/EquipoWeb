@@ -33,7 +33,8 @@ if($estatus=='En confirmacion'){
                               ';
     
     
-mail ($correo,$asunto,$cuerpo,$remitente);  
+mail ($correo,$asunto,$cuerpo,$remitente); 
+    echo " <script > alert ('Se ha enviado un correo para confirmar la entrega') </script>"; 
 }
 
     if($query){
