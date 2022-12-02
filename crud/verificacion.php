@@ -29,9 +29,9 @@ if($Resultado)
 			
 <br>
 		<center><b> <font size=10 color= white face=arial> GRACIAS POR SU COMPRA! </font></b> </center>
-       <center> <img src= https://i.pinimg.com/originals/d0/c8/7b/d0c87bc251511923ddebdf5f11df2a85.gif > </center>
+       <center> <img src= https://paqueteria.softtecisc.com/cajas.gif> </center>
        </br></br>
-       <iframe src="https://paqueteria.softtecisc.com/cajas.gif" width="480" height="396" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/GrupoCorreos-correos-grupo-cinta-transportadora-KzQzXxdJpdSFY9TD9C">via GIPHY</a></p>
+       
 
 
 </body >
