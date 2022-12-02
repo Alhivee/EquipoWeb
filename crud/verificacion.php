@@ -20,7 +20,7 @@ $entregado = $_GET['E'];
 $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET validacion = 'Validado' WHERE ID_GUIA='$ID_GUIA'";
 
 
-if($entregado=='e') {
+if($entregado==1) {
    $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET estatus = 'Entregado' , validacion = 'Entregado' WHERE ID_GUIA='$ID_GUIA'"; 
 }
 
