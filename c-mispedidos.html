@@ -1,3 +1,20 @@
+<?php
+$host="localhost";
+
+    $user="softteci_paqueteria";
+    $pass="equipoweb1";
+    $bd="softteci_paqueteria";
+    $conexion=mysqli_connect($host,$user,$pass,$bd);
+
+$ID_GUIA = $_POST['busqueda'];
+if ($ID_GUIA == '') {
+    $boleano = 0;
+}
+else {
+    $boleano = 1;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es"> 
 <head>
@@ -12,36 +29,46 @@
 	<div class="ventas">
 <br>
 		    <center> <h1> MIS PEDIDOS </h1></center><br>
-
+		    <center><table><form method="POST" action="c-mispedidos.php" name="Busqueda">
+                <tr> 
+   <th> Ingrese el ID del paquete: </th>
+   <th> <input type=text name="busqueda"></th>
+    <th> <input type="submit" name="buscar" id="buscar"> </th>
+                </tr> </form>
+          </table></center>
 </br>
 <center><table width=90% >
     <tr> 
     <th> Id Guía </th>
-    <th> Fecha - Salida </th>
-    <th> Remitente </th>
     <th> Destinatario</th> 
     <th> Tipo </th>
-    <th> Total </th>
+    <th> Total </th>  
+    <th> Fecha - Salida </th>
     <th> Estatus </th>
-    <th> Fecha - Llegada </th>
     </tr>
 
-<?php
-$consulta="select * from compra";
-$registros=mysqli_query($conexion,$consulta);
-
-while ($reg=mysqli_fetch_array($registros)){
-
-?>
+    <?php
+    if ($boleano == '0') {
+        $consulta='select * from PAQUETE where usuario='$usuario' and password='$password'"; ';
+    }
+    else {
+        $consulta="select * from PAQUETE where ID_GUIA LIKE '%".$ID_GUIA."%' where usuario='$usuario' and password='$password'";
+    }
+    
+    
+    $busqueda=mysqli_query($conexion,$consulta);
+    
+    while ($reg=mysqli_fetch_array($busqueda)){
+    
+    ?>
    <tr>  
     <td><center> <?php echo $reg['ID_Guia'] ?></td>
-    <td><center> <?php echo $reg['fecha_Salida'] ?></td>
-    <td><center> <?php echo $reg['nombre_remitente'] ?></td>
-    <td><center> <?php echo $reg['nombre_destinatario'] ?></td>
+    <td><center> <?php echo $reg['destinatario'] ?></td>
     <td><center> <?php echo $reg['tipo_envio'] ?></td>
     <td><center> <?php echo $reg['total_envio'] ?></td>
-    <td><center> <?php echo $reg['estatus_env'] ?></td>
-    <td><center> <?php echo $reg['fecha_Llegada'] ?></td>
+    <td><center> <?php echo $reg['fecha_salida'] ?></td>
+    <td><center> <?php echo $reg['estatus'] ?></td>
+    
     </tr>
     <?php
 } mysqli_close($conexion);

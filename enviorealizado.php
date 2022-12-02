@@ -13,7 +13,7 @@ else {
 }
 
 
-
+$idusu = $_GET["idusu"];
    /* REMITENTE */
     $nombre_remitente= $_POST["nombre_remitente"];
     $tipo_remitente =$_POST["tipo_remitente"];
@@ -40,7 +40,7 @@ $total_envio = 300;
 }
 $fecha =  date('Y-n-d');
     $consulta = "INSERT INTO `softteci_paqueteria`.`PAQUETE` (`id_usuario`, `fecha_salida`, `tipo_envio`, `total_envio`, `destinatario`, `correo_destino`, `direccion_destino`, `estado_destino`,  `telefono_destino`, `correo_remitente`, `nombre_remitente`, `referencias`) 
-    VALUES ('1', '$fecha', '$tipo_remitente', '$total_envio', '$nombre_destinatario', '$correo_destinatario', '$direccion_destinatario', '$estado_destinatario',  '$telefono_destino', '$correo_remitente', '$nombre_remitente', '$referencias_destinatario')";
+    VALUES ($idusu, '$fecha', '$tipo_remitente', '$total_envio', '$nombre_destinatario', '$correo_destinatario', '$direccion_destinatario', '$estado_destinatario',  '$telefono_destino', '$correo_remitente', '$nombre_remitente', '$referencias_destinatario')";
 
 
 
