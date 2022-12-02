@@ -25,7 +25,7 @@ $estado_destinatario =$_POST["estado_destinatario"];
 $direccion_destinatario =$_POST["direccion_destinatario"];
 $referencias_destinatario =$_POST["referencias_destinatario"];
 $correo_destinatario = $_POST["correo_destinatario"];
-$telefono_destino = $_POST["telefono_destinatario"];
+$telefono_destino = $_POST["telefono_destino"];
 $total_envio=0;
 
     if ($tipo_remitente == "Estandar") {
