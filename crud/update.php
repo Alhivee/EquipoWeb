@@ -26,7 +26,7 @@ if($estatus=='En confirmacion'){
                               HOLA! Con este correo queremos corroborar que tu paquete ha sido entregado. 
 					 
                               
-                                  <center><a href="https://www.paqueteria.softtecisc.com/crud/verificacion.php?id='.$id.'&E=1" target="Contenido" class="link"> <img src="https://cdn-icons-png.flaticon.com/512/6851/6851140.png" height=90px ></a> </center> <br>
+                                  <center><a href="https://www.paqueteria.softtecisc.com/crud/verificacion.php?id='.$id.'&E=e" target="Contenido" class="link"> <img src="https://cdn-icons-png.flaticon.com/512/6851/6851140.png" height=90px ></a> </center> <br>
                           <br> En dado caso de no reconocer esta acción ponerse en contacto con el soporte tecnico. <br>
                            ¡Gracias por su preferencia!
                           </html></body>

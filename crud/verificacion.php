@@ -20,8 +20,8 @@ $entregado = $_GET['E'];
 $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET validacion = 'Validado' WHERE ID_GUIA='$ID_GUIA'";
 
 
-if($entregado==1) {
-   $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET validacion = 'Entregado' WHERE ID_GUIA='$ID_GUIA'"; 
+if($entregado=='e') {
+   $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET estatus = 'Entregado' , validacion = 'Entregado' WHERE ID_GUIA='$ID_GUIA'"; 
 }
 
 $Resultado= mysqli_query($conexion,$query);
