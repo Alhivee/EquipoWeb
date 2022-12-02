@@ -1,4 +1,14 @@
-?php
+<?php
+   $host="localhost";
+
+    $user="softteci_paqueteria";
+    $pass="equipoweb1";
+
+    $bd="softteci_paqueteria";
+
+
+    $conexion=mysqli_connect($host,$user,$pass,$bd);
+
 $ID_GUIA = $_POST['busqueda_rastreo'];
 ?>
 
@@ -14,11 +24,20 @@ $ID_GUIA = $_POST['busqueda_rastreo'];
 </head>
 	<body> 
 	<div class="ventas">
+	    <?php
+
+        $consulta="select * from PAQUETE where ID_GUIA = '$ID_GUIA'";
+    
+    $busqueda=mysqli_query($conexion,$consulta);
+    
+    while ($reg=mysqli_fetch_array($busqueda)){
+    
+    ?>
 <br>
-		    <center> <h1> MI PEDIDO # <?php echo $reg['ID_Guia'] ?>  </h1></center><br>
+		    <center> <h1> MI PEDIDO # <?php echo $reg['ID_GUIA'] ?>  </h1></center><br>
 		    <center><table><form >
                 <tr> 
-</br>
+
 <center><table width=90% >
     <tr> 
     <th> Id Guía </th>
@@ -32,15 +51,7 @@ $ID_GUIA = $_POST['busqueda_rastreo'];
     <th> Estatus </th>
     </tr>
 
-    <?php
 
-        $consulta="select * from PAQUETE where ID_GUIA = '.$ID_GUIA.'";
-    
-    $busqueda=mysqli_query($conexion,$consulta);
-    
-    while ($reg=mysqli_fetch_array($busqueda)){
-    
-    ?>
    <tr>  
     <td><center> <?php echo $reg['ID_Guia'] ?></td>
     <td><center> <?php echo $reg['destinatario'] ?></td>
