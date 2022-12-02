@@ -15,8 +15,13 @@ $conexion=mysqli_connect($servername, $username, $password, $dbname);
     
 $ID_GUIA= $_GET["id"];    
 $Validacion = "Validado";
+$entregado = $_GET['E'];
 $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET validacion = '$Validacion' WHERE ID_GUIA='$rfc'";
+if($entregado=1) {
+   $query = "UPDATE `softteci_paqueteria`.`PAQUETE` SET validacion = 'Entregado' WHERE ID_GUIA='$rfc'"; 
+}
 $Resultado= mysqli_query($conexion,$query);
+
 
 if($Resultado)
 { 
