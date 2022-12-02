@@ -3,8 +3,9 @@
     $con=conectar();
     $tipo = $_GET['A'];
     $id = $_GET['ID'];
+$admin = 0;
    if($tipo=='U') { $sql="SELECT * FROM PAQUETE where id_usuario = $id";}
- if($tipo=='A') { $sql="SELECT * FROM PAQUETE";}
+ if($tipo=='A') { $sql="SELECT * FROM PAQUETE"; $admin =1;}
     $query=mysqli_query($con,$sql);
 
 ?>
@@ -94,8 +95,17 @@
                                                 <th><?php  echo $row['direccion_destino']?></th>
                                                 <th><?php  echo $row['estatus']?></th>  
                                                 <th><?php  echo $row['validacion']?></th>   
-                                                <th><a href="actualizar.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="EDITAR">Editar</a></th>
-                                                <th><a href="delete.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="ELIMINAR">Eliminar</a></th>                                        
+                                                <th><a href="actualizar.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="EDITAR"><?php
+                                                if($admin=1) {
+                                                    echo 'Editar';
+                                                }
+                                                else {echo '';}
+                                                ?></a></th>
+                                                <th><a href="delete.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="ELIMINAR"><?php
+                                                if($admin=1) {
+                                                    echo 'Eliminar';
+                                                }
+                                                else {echo '';} ?> </a></th>                                        
                                             </tr>
                                         <?php 
                                             }
