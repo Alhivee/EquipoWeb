@@ -34,11 +34,10 @@ if($estatus=='En confirmacion'){
     
     
 mail ($correo,$asunto,$cuerpo,$remitente);  
+  //  Header("Location: paquete.php?A=$tipo&ID=$idu");
+      echo " <script > alert ('Correo enviado a $correo') </script>"; 
+      
 }
 
-    if($query){
-        
-              Header("Location: paquete.php?A=$tipo&ID=$idu");
-    
-    }
+   
 ?>
