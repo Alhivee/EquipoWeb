@@ -25,15 +25,41 @@
                     <div class="row"> 
                         
                         <div class="col-md-3">
-                            <h1>Aqui otra cosa.</h1>
-                              <!--     <form action="insertar.php" method="POST">
-
-                                    <input type="text" class="form-control mb-3" name="ncontrol" placeholder="N. Control">
-                                    <input type="text" class="form-control mb-3" name="calif" placeholder="Calificación">
-                                    <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombre/s">
-                                    <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos">
+                            <h1>Nuevo Paquete</h1>
+                               <form action="../enviorealizado.php?idusu=<?php echo $id?>" method="POST">
                                     
-                                  <input type="submit" class="btn btn-success"> ---->
+                                     <td>Estado:</td>
+                           <td><select name="estado_destinatario">
+                                <option value= "Guerrero" >Guerrero</option>
+                                <option value= "CDMX">CDMX</option>
+                                <option value="Oaxaca">Oaxaca</option>
+                                <option value="Campeche">Campeche</option>
+                                <option value="Chiapas">Chiapas</option>
+                                <option value="Colima">Colima</option>
+                                <option value="Sonora">Sonora</option>
+                                <option value="Oaxaca">Oaxaca</option>
+                                <option value="Queretaro">Querétaro</option>
+                                <option value="Veracruz">Veracruz</option>
+                                <option value="Yucatan">Yucatan</option>
+                                <option value="Jalisco">Jalisco</option>
+                              </select></td> 
+                                   <br>
+                                    <td>Tipo de envio:</td>
+                       <td><select name="tipo_remitente">
+                            <option value= "Estandar" >Estandar - $130 (7-10 días) </option>
+                            <option value= "Express">Express - $220 (3-5 días) </option>
+                            <option value="Ultra">Ultra express - $300 (1 día) </option>
+                          </select></td> 
+                                    <input type="text" class="form-control mb-3" name="nombre_destinatario" placeholder="Nombre">
+                                    <input type="text" class="form-control mb-3" name="direccion_destinatario" placeholder="Direccion">
+                                    <input type="text" class="form-control mb-3" name="correo_destinatario" placeholder="Correo">
+                                    <input type="text" class="form-control mb-3" name="correo_destinatario" placeholder="Telefono">
+                                    
+                                    <h3>Contacto</h3>
+                                    <input type="text" class="form-control mb-3" name="nombre_remitente" placeholder="Nombre">
+                                    <input type="text" class="form-control mb-3" name="correo_remitente" placeholder="Correo">
+                                    
+                                  <input type="submit" class="btn btn-success" value="Solicitar">
                                     <form action="../login.html" method="post">
              <p></p>
              <p> 
