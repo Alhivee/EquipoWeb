@@ -3,9 +3,13 @@
     $con=conectar();
     $tipo = $_GET['A'];
     $id = $_GET['ID'];
-$admin = 0;
+$editar = "";
+$eliminar="";
    if($tipo=='U') { $sql="SELECT * FROM PAQUETE where id_usuario = $id";}
- if($tipo=='A') { $sql="SELECT * FROM PAQUETE"; $admin =1;}
+ if($tipo=='A') { $sql="SELECT * FROM PAQUETE"; 
+                $editar = "Editar";
+$eliminar="Eliminar";
+                }
     $query=mysqli_query($con,$sql);
 
 ?>
@@ -96,16 +100,11 @@ $admin = 0;
                                                 <th><?php  echo $row['estatus']?></th>  
                                                 <th><?php  echo $row['validacion']?></th>   
                                                 <th><a href="actualizar.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="EDITAR"><?php
-                                                if($admin=1) {
-                                                    echo 'Editar';
-                                                }
-                                                else {echo '';}
+                                                    echo $editar;
                                                 ?></a></th>
                                                 <th><a href="delete.php?id=<?php echo $row['ID_GUIA'] ?>&tipo=<?php echo $tipo ?>&idu=<?php echo $id ?>" class="ELIMINAR"><?php
-                                                if($admin=1) {
-                                                    echo 'Eliminar';
-                                                }
-                                                else {echo '';} ?> </a></th>                                        
+                                                    echo $eliminar;
+                                                ?></a></th>                                        
                                             </tr>
                                         <?php 
                                             }
