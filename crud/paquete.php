@@ -58,7 +58,7 @@ $eliminar="Eliminar";
                                     <input type="text" class="form-control mb-3" name="nombre_destinatario" placeholder="Nombre">
                                     <input type="text" class="form-control mb-3" name="direccion_destinatario" placeholder="Direccion">
                                     <input type="text" class="form-control mb-3" name="correo_destinatario" placeholder="Correo">
-                                    <input type="text" class="form-control mb-3" name="correo_destinatario" placeholder="Telefono">
+                                    <input type="text" class="form-control mb-3" name="telefono_destino" placeholder="Telefono">
                                     
                                     <h3>Contacto</h3>
                                     <input type="text" class="form-control mb-3" name="nombre_remitente" placeholder="Nombre">
