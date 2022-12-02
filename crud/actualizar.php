@@ -1,14 +1,13 @@
 <?php 
     include("conexion.php");
     $con=conectar();
-date_default_timezone_set('Mexico/General');
-echo date(DATE_ATOM);
+
 $id=$_GET['id'];
 $tipo = $_GET['tipo'];
 $idu = $_GET['idu'];
 $sql="SELECT * FROM PAQUETE WHERE ID_GUIA='$id'";
 $query=mysqli_query($con,$sql);
-
+$MenEst ="";
 $row=mysqli_fetch_array($query);
 ?>
 
@@ -25,11 +24,11 @@ $row=mysqli_fetch_array($query);
         
     </head>
     <body>
-                  
+                
                <div class="container mt-5">     
                   
                     <table>
-                    <form action="update.php?tipo=<?php echo $tipo  ?>&idu=<?php echo $idu ?>" method="POST">
+                    <form action="update.php?tipo=<?php echo $tipo  ?>&idu=<?php echo $idu ?>&id=<?php $id?>" method="POST">
                
                    <tr>
                        <td>
@@ -47,7 +46,7 @@ $row=mysqli_fetch_array($query);
                      
                       <tr>
                             <td>Nombre:</td>
-                            <td><input type=text class="form-control mb-3" name="nombre_destinatario" value="<?php echo $row['destinatario']?>"></td>  
+                            <td><input type=text class="form-control mb-3" name="nombre_destinatario" value="<?php echo $row['destinatario']?>"readonly></td>  
                         </tr>
                      <tr>
                          <td>Estado:</td>
@@ -58,29 +57,6 @@ $row=mysqli_fetch_array($query);
                         <td><input  type=text   class="form-control mb-3" name="estado" value="<?php echo $row['total_envio']?>" readonly></td>  
                      </tr>
              
-                     <tr>
-                        <td>Tipo de envio:</td>
-                       <td><select name="tipo_remitente">
-                           <?php
-                           $tipo = $row['tipo_envio'];
-                            $descrip="";
-                          if($tipo=='Estandar'){
-                              $descrip = "Estandar - $130 (7-10 días) ";
-                          }
-                          if($tipo=='Express'){
-                              $descrip ="Express - $220 (3-5 días) ";
-                          }
-                          if($tipo=='Ultra'){
-                            $descrip = "Ultra express - $300 (1 día) ";
-                          }
-                           
-                           ?>
-                           <option value= "<?php echo $tipo?>" ><?php echo $descrip?></option>
-                            <option value= "Estandar" >Estandar - $130 (7-10 días) </option>
-                            <option value= "Express">Express - $220 (3-5 días) </option>
-                            <option value="Ultra">Ultra express - $300 (1 día) </option>
-                          </select></td> 
-                    </tr>
                     
                      
                      
@@ -89,7 +65,7 @@ $row=mysqli_fetch_array($query);
                      
                      <tr>
                          <td>Correo electronico:</td>
-                         <td><input type=email name="correo_remitente" value="<?php echo $row['correo_destino']?>"></td>  
+                         <td><input type=email name="correo_remitente" value="<?php echo $row['correo_destino']?>" readonly></td>  
                      </tr>
              
                    
@@ -108,7 +84,7 @@ $row=mysqli_fetch_array($query);
                         <tr>
                             <td>Dirección:</td>
                             <td><input type=text name="direccion_destinatario" value="<?php
-                            echo $row['direccion_destino']?>"></td>  
+                            echo $row['direccion_destino']?>"readonly></td>  
                         </tr>
 
                       
@@ -117,12 +93,12 @@ $row=mysqli_fetch_array($query);
                 
                         <tr>
                             <td>Telefono:</td>
-                            <td><input type=text name="telefono_destinatario" value="<?php echo $row['telefono_destino']?>"></td>  
+                            <td><input type=text name="telefono_destinatario" value="<?php echo $row['telefono_destino']?>"readonly></td>  
                         </tr>
                 
                      <tr>
                          <td>Estatus:</td>
-                        <td><select name="estatus">
+                        <td><input type="text" name="estatus"
                             <?php
                             $estado = $row['estatus'];
                           $MenEst = "";
@@ -159,20 +135,21 @@ $row=mysqli_fetch_array($query);
                           }
                             
                             ?>
-                             <option value= "<?php echo $MenEst?>" ><?php echo $MenEst?></option>
+                              value= "<?php echo $MenEst?>" >
                        
-                           </select>
+                          
                      </tr>
-                     <tr>
-                         <td colspan="4">   <center> <br> <input type="submit" class="btn btn-primary btn-block" value="Actualizar"></center></td>
-                     </tr>
+                   
                      
             
                        
                        </td>
                        
                         </tr>
-                            
+                         
+                         <td colspan="4">   <center> <br> <input type="submit" class="btn btn-primary btn-block" value="Actualizar"></center></td>
+                    
+                          
                            </form>
                  </table>
                                 

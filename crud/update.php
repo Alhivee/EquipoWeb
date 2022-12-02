@@ -3,18 +3,20 @@
 include("conexion.php");
 $con=conectar();
 
-$nombre_destinatario=$_POST['nombre_destinatario'];
-$dni=$_POST['calif'];
-$nombres=$_POST['nombres'];
-$apellidos=$_POST['apellidos'];
 
+$estatus=$_POST['estatus'];
 $tipo = $_GET['tipo'];
 $idu = $_GET['idu'];
+$idGUIA = $_GET['id'];
 
-$sql="UPDATE alumno SET  calif='$dni',nombres='$nombres',apellidos='$apellidos' WHERE ncontrol='$cod_estudiante'";
+$sql="UPDATE `softteci_paqueteria`.`PAQUETE` SET `estatus` = '$estatus' WHERE `ID_GUIA` = '$idGUIA' ";
 $query=mysqli_query($con,$sql);
 
+echo " <script > alert ('$estatus') </script>"; 
+
     if($query){
+        echo " <script > alert ('wqdwefewf$estatus') </script>"; 
               Header("Location: paquete.php?A=$tipo&ID=$idu");
+        echo " <script > alert ('$estatus') </script>"; 
     }
 ?>
