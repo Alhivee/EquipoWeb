@@ -60,17 +60,13 @@
                                     <input type="text" class="form-control mb-3" name="correo_remitente" placeholder="Correo">
                                     
                                   <input type="submit" class="btn btn-success" value="Solicitar">
-                                    <form action="../login.html" method="post">
-             <p></p>
-             <p> 
-              
-            </p> 
-        </form> 
+                            </form>
+                          
          <br><br>
             <form action="../login.html" method="POST">
            <center><input class="btn btn-danger" type="submit" value="Cerrar Sesion"></center>
                                </form> 
-                                
+                                <a href="paquete.php?A=<?php echo $tipo?>&ID=<?php echo $id?>">Recargar</a>
                         </div>
 
                         <div class="col-md-8">
@@ -107,6 +103,7 @@
                                         
                                 </tbody>
                             </table>
+                           
                         </div>
                     </div>  
                     
