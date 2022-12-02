@@ -118,6 +118,9 @@ $row=mysqli_fetch_array($query);
                           
 
                           }
+                          if($estado=='En confirmacion'){
+                               $MenEst = "En confirmacion";
+                          }
                             
                             ?>
                               value= "<?php echo $MenEst?>" >
