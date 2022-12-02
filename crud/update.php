@@ -12,11 +12,11 @@ $idGUIA = $_GET['id'];
 $sql="UPDATE `softteci_paqueteria`.`PAQUETE` SET `estatus` = '$estatus' WHERE `ID_GUIA` = $guia ";
 $query=mysqli_query($con,$sql);
 
-echo " <script > alert ('$estatus') </script>"; 
+
 
     if($query){
-        echo " <script > alert ('wqdwefewf$estatus') </script>"; 
+        
               Header("Location: paquete.php?A=$tipo&ID=$idu");
-        echo " <script > alert ('$estatus') </script>"; 
+    
     }
 ?>
