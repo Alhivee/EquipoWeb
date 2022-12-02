@@ -28,7 +28,7 @@ $row=mysqli_fetch_array($query);
                <div class="container mt-5">     
                   
                     <table>
-                    <form action="update.php?tipo=<?php echo $tipo  ?>&idu=<?php echo $idu ?>&id=<?php $id?>" method="POST">
+                    <form action="update.php?tipo=<?php echo $tipo  ?>&idu=<?php echo $idu ?>" method="POST">
                
                    <tr>
                        <td>
@@ -43,7 +43,10 @@ $row=mysqli_fetch_array($query);
                          <td><input type=text name="nombre_remitente"></td>  
                      </tr>
                      -->
-                     
+                     <tr>
+                            <td>N. Guia:</td>
+                            <td><input type=text class="form-control mb-3" name="numguia" value="<?php echo $row['ID_GUIA']?>"readonly></td>  
+                        </tr>
                       <tr>
                             <td>Nombre:</td>
                             <td><input type=text class="form-control mb-3" name="nombre_destinatario" value="<?php echo $row['destinatario']?>"readonly></td>  
